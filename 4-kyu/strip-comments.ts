@@ -29,4 +29,4 @@ function solution(input, markers) {
 }
 
 console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]))
-// console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]))
+console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]))
