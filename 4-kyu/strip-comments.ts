@@ -7,20 +7,20 @@ function solution(input, markers) {
   // loop over each mark
   markers.forEach((_, index) => {
     // loop over each word
-    sentence = sentence.map(word => {
-      // get the index of the current mark in sentence
-      // example: '%'.indexOf('%') would be 14
-      const markIndex = word.indexOf(markers[index])
+    sentence = sentence.map(split => {
+      // get the index of the current mark from the split part
+      // example: 'oranges !applesauce'.indexOf('!') would return 8
+      const markIndex = split.indexOf(markers[index])
       
       // if there's a match...
       if (markIndex !== -1) {
-        // remove mark at specified index
-        // example: word.substr(0, 14)
-        return word.substr(0, markIndex)
+        // only return the part up to that index
+        // example: 'oranges !applesauce'.substr(0, 8) would return 'oranges '
+        return split.substr(0, markIndex)
       }
 
       // replace zero or more space character with nothing
-      return word.replace(/\s*$/, '')
+      return split.replace(/\s*$/, '')
     })
   })
 
@@ -29,4 +29,4 @@ function solution(input, markers) {
 }
 
 console.log(solution("apples, plums % and bananas\npears\noranges !applesauce", ["%", "!"]))
-console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]))
+// console.log(solution("Q @b\nu\ne -e f g", ["@", "-"]))
